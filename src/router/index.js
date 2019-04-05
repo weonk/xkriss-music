@@ -10,7 +10,7 @@ export default new Router({
     musicRouter,
     {
       path: '/*',
-      redirect: '/music'
+      redirect: '/xkriss/music'
     }
   ]
 })

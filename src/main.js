@@ -7,13 +7,17 @@ Vue.prototype.axios = axios;
 
 Vue.config.productionTip = false
 
-import Aplayer from 'vue-aplayer'
-import Header from './components/Header'
-import Navbar from './components/Navbar'
+import Player from '@/components/Player'
+import Header from '@/components/Header'
+import Navbar from '@/components/Navbar'
+import Loading from '@/components/Loading'
+// import Scroller from '@/components/Scroller'
 
-Vue.component('Aplayer', Aplayer)
+Vue.component('Player', Player)
 Vue.component('Header', Header)
 Vue.component('Navbar', Navbar)
+Vue.component('Loading',Loading)
+// Vue.component('Scroller', Scroll)
 
 new Vue({
   router,

@@ -1,5 +1,6 @@
 <template>
     <div class="recommend">
+        <Loading v-if="isLoading"/>
         <h3 class="u-smtitle">歌曲列表</h3>
         <ol class="u-songs">
             <li v-for="(song, index) in songs" :key="song.id" class="u-song">
@@ -10,7 +11,7 @@
                         <div class="f-thide sgich_info">{{ song.singer }}</div>
                     </div>
                     <div class="sgich_fr">
-                        <span class="u-hmsprt sgich_ply"></span>
+                        <span @touchstart="play(song.id)" class="u-hmsprt sgich_ply"></span>
                     </div>
                 </div>
             </li>
@@ -19,20 +20,29 @@
 </template>
 
 <script>
+import bus from '@/assets/eventBus'
 export default {
     name: 'Recommend',
     data() {
         return {
-            songs: []
+            songs: [],
+            isLoading: true
         }
     },
-    mounted() {
-        this.axios.get('http://47.106.38.136/music/netease/songList?key=579621905&id=423206645').then((res) => {
+    activated() {
+        this.axios.get('https://api.bzqll.com/music/netease/songList?key=579621905&id=423206645').then((res) => {
             var result = res.data.result;
             if (result === 'SUCCESS') {
                 this.songs = res.data.data.songs;
+                this.isLoading = false;
+                this.$store.commit('music/MUSIC_LIST_RECOMMEND', res.data.data.songs);
             }
         });
+    },
+    methods: {
+        play(id) {
+            bus.$emit('playEvent', id);
+        }
     }
 }
 </script>

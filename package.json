@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.15.1",
     "vue": "^2.6.6",
     "vue-aplayer": "^1.6.1",
     "vue-router": "^3.0.1",
