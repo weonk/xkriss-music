@@ -1,16 +1,17 @@
 <template>
     <div id="content">
         <div class="header">
-            <div class="title">
-                <span class="iconfont icon-music"></span>  <span>XKRISS</span>
+            <div class="logo">
+                <i class="iconfont icon-music"></i>
+                <span> XKRISS</span> 
             </div>
         </div>
         <div class="music_menu">
             <div class="hot_swtich">
-                <router-link tag="div" to="/music/recommend" class="hot_item">推荐音乐</router-link>
-                <router-link tag="div" to="/music/hotRanking" class="hot_item">新歌榜</router-link>
+                <router-link tag="div" to="/xkriss/recommend" class="hot_item">推荐音乐</router-link>
+                <router-link tag="div" to="/xkriss/hotRanking" class="hot_item">新歌榜</router-link>
             </div>
-            <router-link tag="div" to="/music/search" class="search_entry">
+            <router-link tag="div" to="/xkriss/search" class="search_entry">
                 <i class="iconfont icon-sousuo"></i>
             </router-link>
         </div>
@@ -29,20 +30,24 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    z-index: 100;
 }
 #content .header {
     background-color: #D43C33;
     height: 64px;
 }
-#content .header .title {
-    padding: 19px 25px;
-}
-#content .header .title span {
+#content .header .logo {
+    overflow: hidden;
+    padding: 17.5px 17.5px;
     color: white;
-    font-size: 20px;
 }
-#content .header .title .icon-music {
-    font-size: 25px;
+#content .header .logo i {
+    font-size: 24px;
+}
+#content .header .logo span {
+    font-size: 22px;
 }
 #content .music_menu{ width: 100%; height: 45px; border-bottom:1px solid #e6e6e6; display: flex; justify-content:space-between; align-items:center; background:white; z-index:10;}
 .music_menu .hot_swtich{ display: flex; height:100%; line-height: 45px;}

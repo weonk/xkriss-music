@@ -1,6 +1,6 @@
 export default {
-    path: '/music',
-    name: 'music',
+    path: '/xkriss',
+    name: 'xkriss',
     component: () => import('@/views/Music'),
     children: [
         {
@@ -19,8 +19,8 @@ export default {
             component: () => import('@/components/Search')
         },
         {
-            path: '/music',
-            redirect: '/music/recommend'
+            path: '/xkriss',
+            redirect: '/xkriss/recommend'
         }
     ]
 }

@@ -3,7 +3,7 @@
         <Loading v-if="isLoading"/>
         <h3 class="u-smtitle">歌曲列表</h3>
         <ol class="u-songs">
-            <li v-for="(song, index) in songs" :key="song.id" class="u-song">
+            <li v-for="(song, index) in songs" :key="song.id" class="u-song" @click="play(song.id)">
                 <div class="sgi_fl">{{ index + 1 }}</div>
                 <div class="sgi_fr f-bd f-bd-btm">
                     <div class="sgich_fl">
@@ -11,7 +11,7 @@
                         <div class="f-thide sgich_info">{{ song.singer }}</div>
                     </div>
                     <div class="sgich_fr">
-                        <span @touchstart="play(song.id)" class="u-hmsprt sgich_ply"></span>
+                        <span class="u-hmsprt sgich_ply"></span>
                     </div>
                 </div>
             </li>
@@ -30,7 +30,7 @@ export default {
         }
     },
     activated() {
-        this.axios.get('https://api.bzqll.com/music/netease/songList?key=579621905&id=423206645').then((res) => {
+        this.axios.get('/music/netease/songList?key=579621905&id=423206645').then((res) => {
             var result = res.data.result;
             if (result === 'SUCCESS') {
                 this.songs = res.data.data.songs;
