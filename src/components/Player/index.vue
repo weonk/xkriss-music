@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import 'aplayer/dist/APlayer.min.css';
+import APlayer from 'aplayer';
 import bus from '@/assets/eventBus'
 import { setTimeout } from 'timers';
 export default {
